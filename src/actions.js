@@ -22,7 +22,7 @@ function receiveTasks(intanceId, json){
     return {
         type: RECEIVE_TASKS,
         intanceId,
-        tasks: json.data.children.map(child => child.data),
+        tasks: json.data,
         receivedAt: Date.now()
     }
 }

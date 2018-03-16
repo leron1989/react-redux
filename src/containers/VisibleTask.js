@@ -6,12 +6,22 @@ import { connect } from 'react-redux'
 class VisibleTask extends React.Component{
 
     componentDidMount(){
+        console.log("componentDidMount")
         const { dispatch, intanceId } = this.props;
         dispatch(fetchTasks(intanceId));
+        console.log(this.props.tasks)
     }
 
+    // componentWillReceiveProps(nextProps) {
+    //     console.log("componentWillReceiveProps")
+    //     const { dispatch, intanceId } = this.props;
+    //     dispatch(fetchTasks(intanceId));
+    // }
+
     render(){
+        console.log("render")
         const { tasks } = this.props
+        console.log(tasks)
         return(
             <div>
                 <TaskTable tasks={tasks}/>
@@ -22,7 +32,6 @@ class VisibleTask extends React.Component{
 
 
 function mapStateToProps(state) {
-    console.log(state)
     const { selectedIntanceId, taskReducer } = state
     const {
       isFetching,
